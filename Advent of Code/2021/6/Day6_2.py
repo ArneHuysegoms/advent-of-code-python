@@ -1,27 +1,3 @@
-def calculateOffspring(days):
-    totalcount = 0
-    childCount = int((days-2) / 7)
-    totalcount += childCount
-    if childCount > 0:
-        for child in range(1,childCount):
-            totalcount += calculateOffspring(days-2 - ((child) * 7))
-    return totalcount
-
-
-def calculatePopulationAfterDays(initialstate, days):
-    totalcount = 0
-    for i in initialstate:
-        print(i)
-        if i < days:
-            firstChildDaysLeft = days - (i+1) #days left when parent is back at 6
-            childCount = int(firstChildDaysLeft / 7) + 1 #number of children the parent will have
-            totalcount += childCount
-            if childCount > 0:
-                for child in range(childCount):
-                    totalcount += calculateOffspring(firstChildDaysLeft - (child * 7))
-    return totalcount + len(initialstate)
-
-
 def findSolution(list):
     fishOccurences = []
     for i in list:
