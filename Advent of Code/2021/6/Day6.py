@@ -10,8 +10,6 @@ def calculateSpawnedFish(fish, days):
                 toSpawnCount += 1
         for newFish in range(toSpawnCount):
             spawnedFish.append(8)
-    print("spawned " + str(spawnedFish))
-    print(len(spawnedFish))
     return len(spawnedFish)-1
 
 
@@ -25,12 +23,10 @@ def calculatePopulationAfterDays(initialstate, days):
 def findSolution(list):
     completeFishList = []
     for i in list:
-        #[text, fish] = i.split(': ')
-        #fishList = [int(s) for s in fish.strip().split(',')]
         fishList = [int(s) for s in i.strip().split(',')]
         completeFishList.append(fishList)
     print(completeFishList)
-    return calculatePopulationAfterDays(completeFishList[0], 256)
+    return calculatePopulationAfterDays(completeFishList[0], 80)
 
 
 with open('input.txt', 'r') as file:

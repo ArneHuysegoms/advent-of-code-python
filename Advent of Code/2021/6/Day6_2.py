@@ -1,11 +1,10 @@
 def findSolution(list):
     fishOccurences = []
     for i in list:
-        fishList = [s for s in i.strip().split(',')]
         fishOccurencesMap = map(i.count, '012345678')
         fishOccurences = [item for item in fishOccurencesMap]
 
-    print(fishOccurences)
+
     for day in range(256):
         toAdd = [0] * 9
         for index in range(len(fishOccurences)):
@@ -15,7 +14,6 @@ def findSolution(list):
             else:
                 toAdd[index-1] += fishOccurences[index]
         fishOccurences = toAdd
-        print(fishOccurences)
     return sum(fishOccurences)
 
 
