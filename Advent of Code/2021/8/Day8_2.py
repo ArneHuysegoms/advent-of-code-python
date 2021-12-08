@@ -17,52 +17,51 @@ def containsAllChars(word, characters):
 
 
 def updateSignalMapping(signalMappings, inputListSplit):
-    for output in inputListSplit:
-        if len(output) == 2:  # can only be 1
+    for signal in inputListSplit:
+        if len(signal) == 2:  # can only be 1
             if signalMappings[1] == '':
-                signalMappings[1] = "".join(sorted(output))
-        if len(output) == 3:  # can only be 7
+                signalMappings[1] = "".join(sorted(signal))
+        if len(signal) == 3:  # can only be 7
             if signalMappings[7] == '':
-                signalMappings[7] = "".join(sorted(output))
-        if len(output) == 4:  # can only be 4
+                signalMappings[7] = "".join(sorted(signal))
+        if len(signal) == 4:  # can only be 4
             if signalMappings[4] == '':
-                signalMappings[4] = "".join(sorted(output))
-        if len(output) == 7:  # can only be 8
+                signalMappings[4] = "".join(sorted(signal))
+        if len(signal) == 7:  # can only be 8
             if signalMappings[8] == '':
-                signalMappings[8] = "".join(sorted(output))
-        if len(output) == 6:  # can be 0, 6, 9
+                signalMappings[8] = "".join(sorted(signal))
+        if len(signal) == 6:  # can be 0, 6, 9
             if signalMappings[4] != '':
                 if signalMappings[9] == '':
-                    if containsAllChars(output, signalMappings[4]):
-                        signalMappings[9] = "".join(sorted(output))
+                    if containsAllChars(signal, signalMappings[4]):
+                        signalMappings[9] = "".join(sorted(signal))
             if signalMappings[4] != '' and signalMappings[1] != '':
                 if signalMappings[0] == '':
-                    if not containsAllChars(output, signalMappings[4]):
-                        if containsAllChars(output, signalMappings[1]):
-                            signalMappings[0] = "".join(sorted(output))
+                    if not containsAllChars(signal, signalMappings[4]):
+                        if containsAllChars(signal, signalMappings[1]):
+                            signalMappings[0] = "".join(sorted(signal))
             if signalMappings[4] != '' and signalMappings[1] != '':
                 if signalMappings[6] == '':
-                    if not containsAllChars(output, signalMappings[4]):
-                        if not containsAllChars(output, signalMappings[1]):
-                            signalMappings[6] = "".join(sorted(output))
-        if len(output) == 5:  # can be 2, 3, 5,
+                    if not containsAllChars(signal, signalMappings[4]):
+                        if not containsAllChars(signal, signalMappings[1]):
+                            signalMappings[6] = "".join(sorted(signal))
+        if len(signal) == 5:  # can be 2, 3, 5,
             if signalMappings[1] != '':
                 if signalMappings[3] == '':
-                    if containsAllChars(output, signalMappings[1]):
-                        signalMappings[3] = "".join(sorted(output))
+                    if containsAllChars(signal, signalMappings[1]):
+                        signalMappings[3] = "".join(sorted(signal))
             if signalMappings[9] != '' and signalMappings[6] != '':
                 if signalMappings[2] == '':
-                    if diffCharCount(output, signalMappings[9]) == 2 and diffCharCount(output, signalMappings[6]) == 2:
-                        signalMappings[2] = "".join(sorted(output))
+                    if diffCharCount(signal, signalMappings[9]) == 2 and diffCharCount(signal, signalMappings[6]) == 2:
+                        signalMappings[2] = "".join(sorted(signal))
                 if signalMappings[5] == '':
-                    if diffCharCount(output, signalMappings[9]) == 1 and diffCharCount(output, signalMappings[6]) == 1:
-                        signalMappings[5] = "".join(sorted(output))
+                    if diffCharCount(signal, signalMappings[9]) == 1 and diffCharCount(signal, signalMappings[6]) == 1:
+                        signalMappings[5] = "".join(sorted(signal))
     return signalMappings
 
 
 def findSolution(list):
     count = 0
-    outputListSplit = []
     signalMappings = [''] * 10
     signalMappingsNpOld = np.array(signalMappings)
     for input in list:
@@ -80,7 +79,6 @@ def findSolution(list):
         for output in outputListSplit:
             outputtxt += str(signalMappings.index("".join(sorted(output))))
         signalMappings = [''] * 10
-        print(outputtxt)
         count += int(outputtxt)
 
     return count

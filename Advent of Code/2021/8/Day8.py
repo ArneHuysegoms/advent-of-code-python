@@ -2,7 +2,7 @@ def findSolution(list):
     count = 0
     signalMappings = [''] * 10
     for input in list:
-        [inputList, outputList] = [s for s in input.split(' | ')]
+        [_, outputList] = [s for s in input.split(' | ')]
         outputListSplit = [x for x in outputList.split(' ')]
         for output in outputListSplit:
             if len(output) == 2:
