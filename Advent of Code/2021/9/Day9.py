@@ -27,12 +27,9 @@ def isLowestPoint(list, x, y):
 
 def findSolution(list):
     count = 0
-    coordinates = []
-    print(list)
     for y in range(len(list)):
         for x in range(len(list[0])):
             if isLowestPoint(list, x, y):
-                print(list[y][x])
                 count += int(list[y][x]) + 1
     return count
 
