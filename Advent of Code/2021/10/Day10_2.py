@@ -1,7 +1,4 @@
-
-
 def findSolution(list):
-    count = 0
     score = 0
     scoreList = []
     errorFrequencies = [0]*4
@@ -72,12 +69,8 @@ def findSolution(list):
         count_braces = 0
         count_biggersmallerthan = 0
         stack = []
-    #count = errorFrequencies[0]*3 + errorFrequencies[1]*57 + errorFrequencies[2]*1197 + errorFrequencies[3]*25137
-    print(scoreList)
     scoreList = sorted(scoreList)
-    print(scoreList)
-    print(scoreList[len(scoreList) // 2])
-    return score
+    return int(scoreList[len(scoreList) // 2])
 
 
 with open('input.txt', 'r') as file:

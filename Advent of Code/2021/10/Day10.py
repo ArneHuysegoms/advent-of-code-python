@@ -1,7 +1,4 @@
-
-
 def findSolution(list):
-    count = 0
     errorFrequencies = [0]*4
     count_parentheses = 0
     count_curly = 0
@@ -46,19 +43,6 @@ def findSolution(list):
                     errorFrequencies[3] += 1
                     break
                 count_biggersmallerthan -= 1
-
-            # if count_parentheses < 0:
-            #     errorFrequencies[0] += 1
-            #     break
-            # if count_braces < 0:
-            #     errorFrequencies[1] += 1
-            #     break
-            # if count_curly < 0:
-            #     errorFrequencies[2] += 1
-            #     break
-            # if count_biggersmallerthan < 0:
-            #     errorFrequencies[3] += 1
-            #     break
         count_parentheses = 0
         count_curly = 0
         count_braces = 0
